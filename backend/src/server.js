@@ -46,6 +46,24 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Welcome endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Welcome to Luna Sync API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      auth: '/api/v1/auth/*',
+      cycles: '/api/v1/cycles/*',
+      logs: '/api/v1/logs/*',
+      calendar: '/api/v1/calendar/*',
+      users: '/api/v1/users/*'
+    },
+    documentation: 'https://github.com/Sreelal727/luna-sync'
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({

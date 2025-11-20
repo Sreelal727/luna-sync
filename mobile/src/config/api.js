@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // API Base URL - Change this based on your environment
 const API_BASE_URL = __DEV__
   ? 'http://localhost:3000/api/v1'  // Development
-  : 'https://api.lunasync.app/api/v1';  // Production
+  : 'https://luna-sync-h3g9k07uf-sreelal-ks-projects.vercel.app/api/v1';  // Production
 
 // Create axios instance
 const apiClient = axios.create({

@@ -1,15 +1,16 @@
 const { Pool } = require('pg');
 
 // Database connection pool
-// Supports both DATABASE_URL (Railway, Render, Heroku) and individual env vars (local)
+// Supports Supabase (DATABASE_URL), Railway/Render, and local development
 const pool = new Pool(
   process.env.DATABASE_URL
     ? {
         connectionString: process.env.DATABASE_URL,
         ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
-        max: 20,
+        // Serverless-optimized settings for Vercel/Supabase
+        max: process.env.VERCEL ? 1 : 20,
         idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 2000,
+        connectionTimeoutMillis: 10000, // Increased for serverless cold starts
       }
     : {
         host: process.env.DB_HOST || 'localhost',

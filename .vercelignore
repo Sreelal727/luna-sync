@@ -1,0 +1,43 @@
+# Vercel ignore - Don't upload these to Vercel
+
+# Dependencies (will be installed during build)
+node_modules/
+
+# Local env files
+.env
+.env.local
+.env*.local
+
+# Mobile app (not needed for backend deployment)
+mobile/
+
+# Documentation
+*.md
+!README.md
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Tests
+**/*.test.js
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database seeds (for local dev only)
+database/seeds.sql
+
+# Railway config (not needed for Vercel)
+railway.json
+Procfile
